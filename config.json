@@ -1,0 +1,5 @@
+{
+    "imagesBaseUrl": "https://elearning-student-app.herokuapp.com/images/",
+    "filesBaseUrl": "https://elearning-student-app.herokuapp.com/files/",
+    "profileBaseUrl": "https://elearning-student-app.herokuapp.com/profile/"
+}
