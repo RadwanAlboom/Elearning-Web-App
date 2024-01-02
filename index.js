@@ -34,7 +34,7 @@ options = {
     cors: true,
     origins: [
         'https://school-elearning.netlify.app',
-        'https://science-school-elearning.herokuapp.com',
+        'http://3.79.150.169:5000',
     ],
 };
 
@@ -45,7 +45,7 @@ app.use(
     cors({
         origin: [
             'https://school-elearning.netlify.app',
-            'https://science-school-elearning.herokuapp.com',
+            'http://3.79.150.169:5000',
         ],
     })
 );
