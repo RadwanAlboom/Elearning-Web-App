@@ -30,25 +30,12 @@ const {
     registerRequestNotification,
 } = require('./notification');
 
-options = {
-    cors: true,
-    origins: [
-        'https://school-elearning.netlify.app',
-        'http://3.79.150.169:5000',
-    ],
-};
+options = {};
 
 const server = http.createServer(app);
 const io = require('socket.io')(server, options);
 
-app.use(
-    cors({
-        origin: [
-            'https://school-elearning.netlify.app',
-            'http://3.79.150.169:5000',
-        ],
-    })
-);
+app.use(cors());
 
 let users = [];
 
