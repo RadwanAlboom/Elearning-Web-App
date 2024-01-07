@@ -261,5 +261,5 @@ app.use(error);
 const port = process.env.PORT || 5000;
 server.listen(port, () => console.log(`Listening on port ${port}...`));
 
-const httpsServer = https.createServer(cred, server);
+const httpsServer = https.createServer(cred, app);
 httpsServer.listen(8443);
