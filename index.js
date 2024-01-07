@@ -1,5 +1,6 @@
 require('express-async-errors');
 const http = require('http');
+const https = require('https');
 const error = require('./middleware/error');
 var cors = require('cors');
 const express = require('express');
@@ -17,7 +18,14 @@ const email = require('./routes/email');
 const usersRoutes = require('./routes/users');
 const teachers = require('./routes/teachers');
 const chatCord = require('./routes/chatCord');
+const fs = require('fs');
 const { saveMsg, saveChat } = require('./messages');
+
+const key = fs.readFileSync('private.key');
+const cert = fs.readFileSync('certificate.crt');
+
+const cred = {key, cert};
+
 const {
     userJoin,
     userLeaveRoom,
@@ -249,10 +257,9 @@ app.use('/api/email', email);
 app.use('/api/form', form);
 app.use('/api/auth', auth);
 
-app.get('/.well-known/pki-validation/559D95159D0536C9C4EE0CC736A52FA4.txt', (req, res) => {
-    res.sendFile(__dirname + '/559D95159D0536C9C4EE0CC736A52FA4.txt');
-});
-
 app.use(error);
 const port = process.env.PORT || 5000;
 server.listen(port, () => console.log(`Listening on port ${port}...`));
+
+const httpsServer = https.createServer(cred, server);
+httpsServer.listen(8443);
