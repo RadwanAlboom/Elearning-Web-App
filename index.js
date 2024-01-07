@@ -249,7 +249,7 @@ app.use('/api/email', email);
 app.use('/api/form', form);
 app.use('/api/auth', auth);
 
-app.get('/.well-known/pki-validation/559D95159D0536C9C4EE0CC736A52FA4.txt', (req, res) -> {
+app.get('/.well-known/pki-validation/559D95159D0536C9C4EE0CC736A52FA4.txt', (req, res) => {
     res.sendFile(__dirname + '/559D95159D0536C9C4EE0CC736A52FA4.txt');
 });
 
